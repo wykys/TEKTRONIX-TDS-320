@@ -4,6 +4,9 @@
 
 import serial
 import sys
+import os
+
+IMG_DIR = 'img'
 
 class OsciloImageReader():
     def __init__(self, port):
@@ -65,10 +68,18 @@ class OsciloImageReader():
         print('\n\nReceive Complate')
         self.close_serial_port()
 
-        fw = open('img_firt_test.tiff', 'wb')
+
+        if not os.path.exists(IMG_DIR):
+            os.makedirs(IMG_DIR)
+
+        img_url = IMG_DIR + '/' + input('Enter image name') + '.tiff'
+        fw = open(img_url, 'wb')
         fw.write(bytes(img))
         fw.close()
         print('Image created!')
 
-OsciloImageReader('COM11')
-#OsciloImageReader('/dev/ttyUSB0')
+
+if sys.platform() == 'win32':
+    OsciloImageReader('COM11')
+else:
+    OsciloImageReader('/dev/ttyUSB0')
