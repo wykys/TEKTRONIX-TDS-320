@@ -3,6 +3,7 @@
 # program for download the image screen from TEKTRONIX TDS 320
 
 import serial
+import time
 import sys
 import os
 
@@ -72,7 +73,10 @@ class OsciloImageReader():
         if not os.path.exists(IMG_DIR):
             os.makedirs(IMG_DIR)
 
-        img_url = IMG_DIR + '/' + input('Enter image name >>> ') + '.tiff'
+        img_url = IMG_DIR + '/'
+        img_url += time.strftime('%Y-%m-%d_%H-%M-%S_', time.localtime()) +
+        img_url += input('Enter image name >>> ') + '.tiff'
+
         fw = open(img_url, 'wb')
         fw.write(bytes(img))
         fw.close()
