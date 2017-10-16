@@ -50,13 +50,9 @@ class OsciloImageReader():
         while (not image_complate):
             byte = self.read_byte()
             img.append(byte)
-
-            #img = (0x49,0x46,0x46,0x20,0x44,0x72,0x69,0x76,0x65,0x72,0x20,0x31,0x2E,0x30,0x00)
-            #byte = 0
-
             i += 1
 
-            print('\rReceive \t{:10d} B'.format(i), end='')
+            print('\rReceive{:71d} B'.format(i), end='')
 
             # check end file
             if (byte == 0 and i > tiff_end_len):
@@ -69,9 +65,8 @@ class OsciloImageReader():
         print('\n\nReceive Complate')
         self.close_serial_port()
 
-        #fw = open('img_firt_test.tiff', 'wb')
-        fw = open('data.txt', 'w')
-        fw.write(str(img))
+        fw = open('img_firt_test.tiff', 'wb')
+        fw.write(bytes(img))
         fw.close()
         print('Image created!')
 
