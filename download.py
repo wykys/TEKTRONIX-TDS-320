@@ -72,7 +72,7 @@ class OsciloImageReader():
         if not os.path.exists(IMG_DIR):
             os.makedirs(IMG_DIR)
 
-        img_url = IMG_DIR + '/' + input('Enter image name') + '.tiff'
+        img_url = IMG_DIR + '/' + input('Enter image name >>> ') + '.tiff'
         fw = open(img_url, 'wb')
         fw.write(bytes(img))
         fw.close()
