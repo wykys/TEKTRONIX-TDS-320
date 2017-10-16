@@ -79,7 +79,7 @@ class OsciloImageReader():
         print('Image created!')
 
 
-if sys.platform() == 'win32':
+if sys.platform == 'win32':
     OsciloImageReader('COM11')
 else:
     OsciloImageReader('/dev/ttyUSB0')
