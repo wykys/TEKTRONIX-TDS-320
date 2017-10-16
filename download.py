@@ -60,7 +60,7 @@ class OsciloImageReader():
         img = []
         i = 0
 
-        print('Send command HARTCopy.')
+        print('Send command HARDCopy.')
         self.send_cmd('HARDCopy')
         print('Waiting for dates...')
 
