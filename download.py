@@ -65,4 +65,4 @@ class OsciloImageReader():
 
         print('\n\nReceive Complate')
 
-OsciloImageReader('/dev/ttyUSB0') # na windows nahradit třeba COM1
+OsciloImageReader('/dev/ttyUSB0') # on windows replace for example COM1
