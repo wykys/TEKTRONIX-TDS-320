@@ -17,7 +17,7 @@ class OsciloImageReader():
     def open_serial_port(self):
         """ open connection """
         self.ser.port = self.port
-        self.ser.baudrate = 9600
+        self.ser.baudrate = 19200
         self.ser.stopbits = serial.STOPBITS_ONE
         self.ser.parity = serial.PARITY_NONE
         self.ser.bytesize = serial.EIGHTBITS
