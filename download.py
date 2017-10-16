@@ -45,7 +45,7 @@ class OsciloImageReader():
         """ send command """
         if type(cmd) == str:
             for c in cmd:
-                self.send_byte(c)
+                self.send_byte(ord(c))
 
     def close_serial_port(self):
         """ end connection """
