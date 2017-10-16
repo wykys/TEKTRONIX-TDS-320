@@ -43,7 +43,7 @@ class OsciloImageReader():
 
     def send_cmd(self, cmd):
         """ send command """
-        if type(cmd) = str:
+        if type(cmd) == str:
             for c in cmd:
                 self.send_byte(c)
 
