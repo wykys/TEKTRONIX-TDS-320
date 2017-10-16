@@ -36,6 +36,17 @@ class OsciloImageReader():
         """ read one byte """
         return int.from_bytes(self.ser.read(1), byteorder='little', signed=False)
 
+    def send_byte(self, byte):
+        """ write one byte """
+        self.ser.write(bytes((byte,)))
+        time.sleep(0.01)
+
+    def send_cmd(self, cmd):
+        """ send command """
+        if type(cmd) = str:
+            for c in cmd:
+                self.send_byte(c)
+
     def close_serial_port(self):
         """ end connection """
         self.ser.close()
@@ -49,6 +60,8 @@ class OsciloImageReader():
         img = []
         i = 0
 
+        print('Send command HARTCopy.')
+        self.send_cmd('HARDCopy')
         print('Waiting for dates...')
 
         while (not image_complate):
@@ -66,9 +79,8 @@ class OsciloImageReader():
                         image_complate = False
                         break
 
-        print('\n\nReceive Complate')
+        print('\nReceive Complate')
         self.close_serial_port()
-
 
         if not os.path.exists(IMG_DIR):
             os.makedirs(IMG_DIR)
