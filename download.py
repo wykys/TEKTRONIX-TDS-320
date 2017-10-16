@@ -66,8 +66,8 @@ class OsciloImageReader():
         print('\n\nReceive Complate')
 
         fw = open('img_firt_test.tiff', 'wb')
-        fw.write(img)
+        fw.write(str(img))
         fw.close()
         print('Imace created!')
 
-OsciloImageReader('/dev/ttyUSB0') # on windows replace for example COM1
+OsciloImageReader('COM11')
