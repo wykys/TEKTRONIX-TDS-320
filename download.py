@@ -65,7 +65,8 @@ class OsciloImageReader():
 
         print('\n\nReceive Complate')
 
-        fw = open('img_firt_test.tiff', 'wb')
+        #fw = open('img_firt_test.tiff', 'wb')
+        fw = open('data.txt', 'w')
         fw.write(str(img))
         fw.close()
         print('Imace created!')
