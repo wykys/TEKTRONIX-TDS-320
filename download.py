@@ -74,7 +74,7 @@ class OsciloImageReader():
             os.makedirs(IMG_DIR)
 
         img_url = IMG_DIR + '/'
-        img_url += time.strftime('%Y-%m-%d_%H-%M-%S_', time.localtime()) +
+        img_url += time.strftime('%Y-%m-%d_%H-%M-%S_', time.localtime()
         img_url += input('Enter image name >>> ') + '.tiff'
 
         fw = open(img_url, 'wb')
