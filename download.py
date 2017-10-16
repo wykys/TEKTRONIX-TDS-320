@@ -47,6 +47,7 @@ class OsciloImageReader():
             for c in cmd:
                 self.send_byte(ord(c))
             self.send_byte(10) # LF
+            print('Send command {}.'.format(cmd))
 
     def close_serial_port(self):
         """ end connection """
@@ -61,9 +62,11 @@ class OsciloImageReader():
         img = []
         i = 0
 
-        cmd = 'HARDCopy STARt'
-        print('Send command {}.'.format(cmd))
-        self.send_cmd(cmd)
+        self.send_cmd('HARDCopy:PORT RS232')
+        self.send_cmd('HARDCopy:FORMat TIFf')
+        self.send_cmd('HARDCopy:LAYout PORTRait')
+        self.send_cmd('HARDCopy STARt')
+        
         print('Waiting for dates...')
 
         while (not image_complate):
