@@ -66,7 +66,7 @@ class OsciloImageReader():
         self.send_cmd('HARDCopy:FORMat TIFf')
         self.send_cmd('HARDCopy:LAYout PORTRait')
         self.send_cmd('HARDCopy STARt')
-        
+
         print('Waiting for dates...')
 
         while (not image_complate):
